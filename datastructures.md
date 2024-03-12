@@ -86,6 +86,14 @@ public class MapExample {
 
 // JavaScript
 
+function fetchDataAndProcess(callback) {
+    fetchData(function(data) {
+        processData(data, function(result) {
+            callback(result);
+        });
+    });
+}
+
 function arrayExample() {
     return [1, 2, 3, 4, 5];
 }

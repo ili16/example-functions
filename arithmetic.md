@@ -98,8 +98,7 @@ double power(double a, double b) {
 }
 
 # Ruby
-
-def add(a, b)
+2
     a + b
 end
 
