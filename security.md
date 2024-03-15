@@ -1,8 +1,8 @@
 # Security
 
-A secure function in itself can turn bad 
+Maintaining and updating code is essential for ensuring the security of modern software systems. However, when code becomes unmaintainable, such as through complex or outdated practices, updating it becomes challenging. For instance, outdated security practices like using insecure hashing algorithms can compromise system security. Consequently, failure to modernize code can lead to vulnerabilities, making systems more susceptible to exploitation and compromising sensitive data.
 
-```
+```PHP
 <?php
 session_start();
 
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['logout'])) {
 
 ```
 
-```
+```Java
 import java.io.*;
 
 public class Serialization {
@@ -72,12 +72,11 @@ class Player implements Serializable {
 }
 ```
 
-```
+```Python
 
 import hashlib
 
 def hash_password(password):
-    # Insecure hashing algorithm (MD5)
     hashed_password = hashlib.md5(password.encode()).hexdigest()
     return hashed_password
 
