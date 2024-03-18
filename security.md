@@ -2,6 +2,9 @@
 
 Maintaining and updating code is essential for ensuring the security of modern software systems. However, when code becomes unmaintainable, such as through complex or outdated practices, updating it becomes challenging. For instance, outdated security practices like using insecure hashing algorithms can compromise system security. Consequently, failure to modernize code can lead to vulnerabilities, making systems more susceptible to exploitation and compromising sensitive data.
 
+#### Task: Find security issues in the following code
+- Choose between using a custom prompt or a pre-defined one from the prompt list
+
 ```PHP
 <?php
 session_start();

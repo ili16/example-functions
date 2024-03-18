@@ -2,9 +2,9 @@
 
 The recent development is showing an ever increasing amount of context an LLM can consume. This allows the useage of more content of your file, project to be used as a guideline for your prompt
 
-## Task: Select the whole file (Ctrl + Alt), right click anywhere and use the "Prompt By List" Function to ask questions about this code
+## Task: Select the whole line (cursor on line 10 then Ctrl + Shift + End), right click anywhere and use the "Prompt By List" Function to ask questions about this code
 
-Consider the following lengthy function with hidden technical debt:
+Consider the following lengthy Function which is hard to read for anybody who is not :
 
 ```C
 // SPDX-License-Identifier: GPL-2.0-or-later
