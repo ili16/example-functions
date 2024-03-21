@@ -1,0 +1,92 @@
+This file is only used as reference
+
+
+private bool IsEven(int number) {
+    return number % 2 == 0;
+}
+
+
+
+List<int> numbers = new List<int>() { 1, 2, 3, 4, 5 };
+foreach (int number in numbers)
+{
+    Console.WriteLine(number);
+}
+
+
+#include <stdio.h>
+
+int fibonacci(int n) {
+    if (n <= 1)
+        return n;
+    else
+        return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+int main() {
+    int n, i;
+
+    printf("Enter the number of terms: ");
+    scanf("%d", &n);
+
+    printf("Fibonacci Series: ");
+    for (i = 0; i < n; i++) {
+        printf("%d ", fibonacci(i));
+    }
+
+    return 0;
+}
+
+FORM fibonacci_iter USING index TYPE i
+CHANGING number_fib TYPE i.
+DATA: lv_old type i,
+lv_cur type i.
+Do index times.
+If sy-index = 1 or sy-index = 2.
+lv_cur = 1.
+lv_old = 0.
+endif.
+number_fib = lv_cur + lv_old.
+lv_old = lv_cur.
+lv_cur = number_fib.
+enddo.
+ENDFORM.
+
+
+#include <stdio.h>
+
+void move(int n, int from, int via, int to)
+{
+  if (n > 1) {
+    move(n - 1, from, to, via);
+    printf("Move disk from pole %d to pole %d\n", from, to);
+    move(n - 1, via, from, to);
+  } else {
+    printf("Move disk from pole %d to pole %d\n", from, to);
+  }
+}
+int main()
+{
+  move(4, 1,2,3);
+  return 0;
+}
+
+PROGRAM TOWER
+                             
+  CALL Move(4, 1, 2, 3)
+                
+CONTAINS
+
+  RECURSIVE SUBROUTINE Move(ndisks, from, to, via)
+    INTEGER, INTENT (IN) :: ndisks, from, to, via
+   
+    IF (ndisks == 1) THEN
+       WRITE(*, "(A,I1,A,I1)") "Move disk from pole ", from, " to pole ", to
+    ELSE
+       CALL Move(ndisks-1, from, via, to)
+       CALL Move(1, from, to, via)
+       CALL Move(ndisks-1, via, to, from)
+    END IF
+  END SUBROUTINE Move
+
+END PROGRAM TOWER

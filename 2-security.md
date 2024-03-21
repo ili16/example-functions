@@ -2,8 +2,13 @@
 
 Maintaining and updating code is essential for ensuring the security of modern software systems. However, when code becomes unmaintainable, such as through complex or outdated practices, updating it becomes challenging. For instance, outdated security practices like using insecure hashing algorithms can compromise system security. Consequently, failure to modernize code can lead to vulnerabilities, making systems more susceptible to exploitation and compromising sensitive data.
 
-#### Task: Find security issues in the following code
-- Choose between using a custom prompt or a pre-defined one from the prompt list
+#### Task 1: Select one these functions and ask a security related question
+
+select code -> right click -> Modernizer -> Generate custom Prompt -> enter your question or instruct
+
+#### Task 2: Select another function and use a pre-defined security question
+
+select code -> right click -> Modernizer -> Generate Prompt By List -> select security -> select an instruct
 
 ```PHP
 <?php
@@ -33,46 +38,54 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['logout'])) {
 
 ```
 
-```Java
-import java.io.*;
+```C#
+using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Security.Cryptography;
 
-public class Serialization {
-    public static void main(String[] args) {
-        try {
-            Player player = new Player("Alice", "password123");
+namespace Serialization
+{
+    [Serializable]
+    public class Player
+    {
+        public string Username { get; set; }
+        public string Password { get; set; }
 
-            FileOutputStream fileOut = new FileOutputStream("player.ser");
-            ObjectOutputStream out = new ObjectOutputStream(fileOut);
-            out.writeObject(player);
-            out.close();
-            fileOut.close();
+        public Player(string username, string password)
+        {
+            Username = username;
+            Password = password;
+        }
+    }
 
-            FileInputStream fileIn = new FileInputStream("player.ser");
-            ObjectInputStream in = new ObjectInputStream(fileIn);
-            Player deserializedPlayer = (Player) in.readObject();
-            in.close();
-            fileIn.close();
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                Player player = new Player("Bob", "password123");
 
-            System.out.println("Player's password: " + deserializedPlayer.getPassword());
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+                BinaryFormatter formatter = new BinaryFormatter();
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    formatter.Serialize(ms, player);
+                    byte[] serializedPlayer = ms.ToArray();
+
+                    Player deserializedPlayer = (Player)formatter.Deserialize(new MemoryStream(serializedPlayer));
+
+                    Console.WriteLine("Player's password: " + deserializedPlayer.Password);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception: " + ex.Message);
+            }
         }
     }
 }
 
-class Player implements Serializable {
-    private String username;
-    private String password;
-
-    public Player(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-}
 ```
 
 ```Python

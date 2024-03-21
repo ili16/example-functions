@@ -1,10 +1,10 @@
 # Technical Debt
 
-In this section, we'll examine different types of technical debt present in our codebase.
+In this section, we'll use different ways of retrieving information regarding technical debt in a function.
 
-## Task 1: Find technical flaws in the following function
-1. Use a custom prompt
-2. Select a pre-defined prompt
+## Task 1: Find out what this Function does and whether it has technical debt
+
+- Use two custom prompts
 
 ```Java
 public class ShoppingCart {
@@ -50,9 +50,10 @@ public class ShoppingCart {
 }
 ```
 
-## Task 2: Find technical flaws in the following function
-1. Use a custom prompt
-2. Select a pre-defined prompt
+## Task 2: Find out what this Class does and whether it has technical debt
+
+- Retrieve the Responses By Type
+- Read the explanation and modernisation responses
 
 ```Javascript
 class User {
@@ -93,11 +94,6 @@ class User {
         this.email = newEmail;
     }
 }
-
-// Usage
-const user1 = new User('Alice', 'alice@example.com');
-user1.login();
-user1.sendEmail('Hello', 'This is a test email.');
 ```
 
 While writing code is the most metioned and upfront task of a developer, it's just a subset of the necessary process to deliver software to a customer. Let's look at this example of a Makefile.
